@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>黄恺宁 – 职业作品集</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI','Microsoft YaHei',system-ui,sans-serif;background:#f4f6f9;color:#2d3748;min-height:100vh;display:flex;flex-direction:column}
+a{color:#0078d4;text-decoration:none}a:hover{text-decoration:underline}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;background:#1a2a3a;position:fixed;top:0;left:0;height:100vh;overflow-y:auto;z-index:200;padding:0 0 32px;box-shadow:4px 0 16px rgba(0,0,0,.15)}
+.main{margin-left:240px;flex:1;padding:0 0 60px}
+@media(max-width:900px){.sidebar{display:none}.main{margin-left:0}}
+.sb-logo{padding:28px 20px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.sb-logo .name{font-size:15px;font-weight:700;color:#fff}
+.sb-logo .role{font-size:11px;color:#90aac4;margin-top:3px}
+.sb-nav{padding:16px 0}
+.sb-item{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;color:#90aac4;cursor:pointer;border-left:3px solid transparent;transition:all .2s;text-decoration:none}
+.sb-item:hover,.sb-item.active{color:#fff;background:rgba(255,255,255,.08);border-left-color:#00a2d4}
+.sb-item .ico{font-size:15px;width:20px;text-align:center}
+.sb-label{font-size:10px;color:#4a6a8a;text-transform:uppercase;letter-spacing:.8px;padding:16px 20px 6px}
+.hero{background:linear-gradient(135deg,#eef4fb 0%,#ddeef9 60%,#eef4fb 100%);padding:52px 60px 44px;border-bottom:3px solid #0078d4;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,120,212,.08) 0%,transparent 70%);pointer-events:none}
+.hero-inner{display:flex;gap:32px;align-items:flex-start;position:relative;z-index:1}
+.avatar{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,#0078d4,#00a2d4);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;color:#fff;flex-shrink:0;border:3px solid #fff;box-shadow:0 4px 20px rgba(0,120,212,.3)}
+.hero-info{flex:1}
+.hero-info h1{font-size:30px;font-weight:800;color:#0d1f3c;letter-spacing:-.3px}
+.hero-info .zh{font-size:16px;color:#4a80b0;margin-top:2px}
+.hero-info .role-title{font-size:14px;color:#4a6686;margin-top:6px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.badge{background:rgba(0,120,212,.1);border:1px solid rgba(0,120,212,.3);color:#0060b0;font-size:11px;padding:4px 12px;border-radius:20px;font-weight:600}
+.hero-meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:20px}
+.meta-item{background:#fff;border:1px solid #d0e4f4;border-radius:8px;padding:10px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.meta-label{font-size:10px;color:#7a9ab8;text-transform:uppercase;letter-spacing:.6px}
+.meta-value{font-size:13px;color:#1a2d45;margin-top:3px;font-weight:600}
+.hero-right{text-align:right;flex-shrink:0}
+.timestamp{font-size:12px;color:#7a9ab8}
+.timestamp strong{color:#0078d4;display:block;font-size:14px;font-weight:700}
+.section{padding:44px 60px;border-bottom:1px solid #e8edf4;background:#fff}
+.section:nth-child(even){background:#f8fafc}
+.section:last-child{border-bottom:none}
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.sec-num{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0078d4,#00a2d4);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(0,120,212,.3)}
+.sec-title{font-size:20px;font-weight:700;color:#0d1f3c}
+.sec-sub{font-size:12px;color:#7a9ab8;margin-top:2px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:22px;margin-bottom:18px;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.card-title{font-size:14px;font-weight:700;color:#0d1f3c;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:1000px){.two-col{grid-template-columns:1fr}}
+@media(max-width:700px){.section{padding:28px 20px}.hero{padding:32px 20px}}
+.summary-text{font-size:14px;line-height:1.9;color:#4a5568}
+.summary-text strong{color:#0060b0}
+.highlight-box{background:#eef4fb;border-left:4px solid #0078d4;border-radius:0 10px 10px 0;padding:16px 20px;margin-top:18px;font-size:13px;color:#2d5080;line-height:1.75}
+.skill-group{margin-bottom:18px}
+.skill-group-label{font-size:11px;color:#7a9ab8;text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;font-weight:600}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:500}
+.tag-blue{background:#e8f2fc;border:1px solid #b8d4f0;color:#0060a8}
+.tag-teal{background:#e6f6f6;border:1px solid #a0d8d8;color:#007a7a}
+.tag-purple{background:#f0eafa;border:1px solid #c8a8e8;color:#6030a0}
+.tag-orange{background:#fef4e8;border:1px solid #f0c880;color:#a05800}
+.tag-green{background:#e8f6ea;border:1px solid #a0d4a8;color:#206030}
+.timeline{position:relative;padding-left:36px}
+.timeline::before{content:'';position:absolute;left:12px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#0078d4,#b8d4f0)}
+.tl-item{position:relative;margin-bottom:36px}
+.tl-dot{position:absolute;left:-30px;top:6px;width:16px;height:16px;border-radius:50%;background:#0078d4;border:3px solid #fff;box-shadow:0 0 0 2px #0078d4}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.tl-company{font-size:16px;font-weight:700;color:#0d1f3c}
+.tl-role{font-size:13px;color:#0078d4;margin-top:2px;font-weight:600}
+.tl-period{font-size:12px;color:#7a9ab8;background:#f0f4f8;border:1px solid #d8e4f0;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.tl-body{margin-top:12px}
+.tl-points{list-style:none;padding:0}
+.tl-points li{font-size:13px;color:#4a5568;padding:5px 0 5px 18px;position:relative;line-height:1.7}
+.tl-points li::before{content:'›';position:absolute;left:0;color:#0078d4;font-weight:700;font-size:16px}
+.tl-points li strong{color:#0d1f3c}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin-bottom:22px}
+.kpi-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 14px;transition:transform .2s;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.kpi-label{font-size:10px;color:#7a9ab8;text-transform:uppercase;letter-spacing:.5px}
+.kpi-value{font-size:24px;font-weight:800;margin:6px 0 3px}
+.kpi-delta{font-size:11px}
+.c-blue{color:#0078d4}.c-green{color:#1a8c36}.c-orange{color:#c06800}.c-red{color:#c0223a}.c-dark{color:#0d1f3c}
+.delta-up{color:#1a8c36}.delta-down{color:#c0223a}.delta-n{color:#7a9ab8}
+.prog-wrap{margin-bottom:14px}
+.prog-head{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;color:#4a5568}
+.prog-track{background:#e8edf4;border-radius:8px;height:9px;overflow:hidden}
+.prog-bar{height:100%;border-radius:8px;animation:growBar 1.2s ease forwards}
+@keyframes growBar{from{width:0}}
+.p-blue{background:linear-gradient(90deg,#0060b0,#00a2d4)}
+.p-green{background:linear-gradient(90deg,#1a7a30,#2dc653)}
+.p-orange{background:linear-gradient(90deg,#c06000,#f0a020)}
+.p-red{background:linear-gradient(90deg,#a01030,#d13438)}
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{background:#f0f4f8;color:#7a9ab8;font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding:10px 14px;text-align:left;border-bottom:2px solid #e2e8f0}
+.data-table td{padding:10px 14px;border-bottom:1px solid #f0f4f8;color:#4a5568}
+.data-table tr:hover td{background:#f8fafc}
+.chip{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.ch-green{background:#e8f6ea;color:#1a6e2e;border:1px solid #a0d4a8}
+.ch-orange{background:#fef4e8;color:#8a4e00;border:1px solid #f0c880}
+.ch-red{background:#fde8eb;color:#a0203a;border:1px solid #f0a8b0}
+.ch-blue{background:#e8f2fc;color:#0060a8;border:1px solid #b8d4f0}
+.spotlight{background:#eef4fb;border:1px solid #c8dff0;border-radius:12px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.spotlight .sp-icon{font-size:28px;flex-shrink:0}
+.spotlight .sp-text strong{color:#0060b0;font-size:14px;font-weight:700}
+.spotlight .sp-text p{font-size:13px;color:#4a6686;margin-top:5px;line-height:1.65}
+.spotlights{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:22px}
+.proj-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:transform .2s,box-shadow .2s}
+.proj-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.proj-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+.proj-title{font-size:16px;font-weight:700;color:#0d1f3c}
+.proj-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.proj-body{font-size:13px;color:#4a5568;line-height:1.75}
+.proj-body strong{color:#0d1f3c}
+.tag-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.proj-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12px;color:#0078d4;font-weight:600;border:1px solid #b8d4f0;background:#eef4fb;padding:5px 12px;border-radius:20px;transition:background .2s}
+.proj-link:hover{background:#ddeef9;text-decoration:none}
+.collab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.collab-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.collab-card .cc-icon{font-size:24px;margin-bottom:10px}
+.collab-card .cc-label{font-size:13px;font-weight:700;color:#0d1f3c;margin-bottom:6px}
+.collab-card .cc-text{font-size:12px;color:#5a7694;line-height:1.65}
+.contact-bar{background:#eef4fb;border-top:2px solid #c8dff0;padding:22px 60px;display:flex;align-items:center;justify-content:center;gap:16px}
+.contact-bar .cb-icon{font-size:24px}
+.contact-bar .cb-label{font-size:11px;color:#7a9ab8;text-transform:uppercase;letter-spacing:.6px}
+.contact-bar .cb-value{font-size:18px;font-weight:700;color:#0d1f3c;letter-spacing:.5px}
+footer{background:#1a2a3a;padding:20px 60px;text-align:center;font-size:12px;color:#7a9ab8}
+footer strong{color:#60b8e0}
+@media print{
+  .sidebar{display:none}.main{margin-left:0}
+  .hero{background:#fff!important;border-bottom:2px solid #0078d4}
+  body{background:#fff;color:#111}
+  .card,.proj-card,.collab-card,.kpi-card{box-shadow:none!important;border:1px solid #ccc!important}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- 侧边栏 -->
+<aside class="sidebar">
+  <div class="sb-logo">
+    <div class="name">黄恺宁 (Kaining Huang)</div>
+    <div class="role">商业分析师 · 销售运营</div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-label">目录</div>
+    <a href="#about"    class="sb-item"><span class="ico">👤</span>个人简介</a>
+    <a href="#skills"   class="sb-item"><span class="ico">⚡</span>核心能力</a>
+    <a href="#career"   class="sb-item"><span class="ico">🗓️</span>职业经历</a>
+    <a href="#projects" class="sb-item"><span class="ico">📊</span>核心项目</a>
+    <a href="#results"  class="sb-item"><span class="ico">🎯</span>业绩与成果</a>
+    <a href="#global"   class="sb-item"><span class="ico">🌏</span>全球协作与赋能</a>
+    <a href="#kpi"      class="sb-item"><span class="ico">📋</span>绩效管理记录</a>
+  </nav>
+</aside>
+
+<!-- 主内容 -->
+<div class="main">
+
+<!-- 顶部 Hero -->
+<div class="hero" id="top">
+  <div class="hero-inner">
+    <div class="avatar">黄</div>
+    <div class="hero-info">
+      <h1>Kaining Huang</h1>
+      <div class="zh">黄恺宁</div>
+      <div class="role-title">商业分析师 &middot; 销售运营与商业智能</div>
+      <div class="hero-badges">
+        <span class="badge">分析平台搭建者</span>
+        <span class="badge">全球汇报负责人</span>
+        <span class="badge">Power BI 专家</span>
+        <span class="badge">KPI 设计与治理</span>
+        <span class="badge">跨区域赋能</span>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-item"><div class="meta-label">当前职位</div><div class="meta-value">商业分析师，Concentrix</div></div>
+        <div class="meta-item"><div class="meta-label">市场覆盖</div><div class="meta-value">大中华区（中国 · 香港 · 台湾）</div></div>
+        <div class="meta-item"><div class="meta-label">教育背景</div><div class="meta-value">应用建模硕士 · 统计学学士</div></div>
+        <div class="meta-item"><div class="meta-label">语言能力</div><div class="meta-value">母语中文 · 英语流利</div></div>
+        <div class="meta-item"><div class="meta-label">联系电话</div><div class="meta-value">📱 +86 181 1888 5630</div></div>
+        <div class="meta-item"><div class="meta-label">学业绩点</div><div class="meta-value">3.97 / 4.0（Trent University）</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="timestamp">作品集更新时间<br/><strong>2026年3月19日</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- §1 个人简介 -->
+<div class="section" id="about">
+  <div class="sec-header">
+    <div class="sec-num">1</div>
+    <div><div class="sec-title">👤 个人简介</div><div class="sec-sub">我是谁，我能带来什么</div></div>
+  </div>
+  <div class="summary-text">
+    我是一名<strong>善于将复杂数据转化为清晰决策的商业分析师</strong>。凭借统计学与应用建模的学术背景（GPA 3.97/4.0），我的工作始终专注于打通原始数据与真实业务成果之间的链路——搭建团队真正在用的工具、讲述管理层真正会行动的故事、维护组织真正可以信赖的系统。<br><br>
+    我的职业生涯横跨三个国家。在<strong>美国</strong>，我从事股权研究，通过构建量化模型帮助分析师以严谨高效的方式评估市场事件。在<strong>加拿大</strong>，我转型至房地产数据分析领域——整合企业与政府公开数据，为管理层在8万余套租赁房产的库存分配与定价决策上提供数据支撑。<br><br>
+    目前在<strong>Concentrix</strong>，我全面负责一个多市场销售组织的数据分析职能。我从零搭建了数据看板平台，设计了区域绩效考核体系，代表团队参与全球业务回顾会议，并为多个大洲的同事提供数据解读与标准化培训。我的工作直接影响组织如何理解自身的运营状况——以及领导层如何决定下一步行动。
+  </div>
+  <div class="highlight-box">
+    💡 <strong>我的独特价值：</strong>我不只是搭建看板——我对数据全链路负责。从设计合理的指标体系、清洗与整合多源数据，到向高管呈现分析洞察、指导全球团队形成一致的数据解读标准。我将技术深度与业务判断力带入每一个项目。
+  </div>
+</div>
+
+<!-- §2 核心能力 -->
+<div class="section" id="skills">
+  <div class="sec-header">
+    <div class="sec-num">2</div>
+    <div><div class="sec-title">⚡ 核心能力</div><div class="sec-sub">技术技能、专业知识与领导力</div></div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">📊 商业智能与数据分析</div>
+      <div class="skill-group">
+        <div class="skill-group-label">BI 与可视化</div>
+        <div class="skill-tags">
+          <span class="skill-tag tag-blue">Power BI</span>
+          <span class="skill-tag tag-blue">DAX</span>
+          <span class="skill-tag tag-blue">Power Query</span>
+          <span class="skill-tag tag-blue">看板设计</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">数据工程</div>
+        <div class="skill-tags">
+          <span class="skill-tag tag-teal">MySQL</span>
+          <span class="skill-tag tag-teal">Excel（高级）</span>
+          <span class="skill-tag tag-teal">ETL 与数据清洗</span>
+          <span class="skill-tag tag-teal">数据治理</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">统计与定量方法</div>
+        <div class="skill-tags">
+          <span class="skill-tag tag-purple">Python</span>
+          <span class="skill-tag tag-purple">时间序列分析</span>
+          <span class="skill-tag tag-purple">回归建模</span>
+          <span class="skill-tag tag-purple">预测分析</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🎯 销售运营与绩效</div>
+      <div class="skill-group">
+        <div class="skill-group-label">营收分析与 KPI 设计</div>
+        <div class="skill-tags">
+          <span class="skill-tag tag-orange">KPI 体系设计</span>
+          <span class="skill-tag tag-orange">绩效奖金计算</span>
+          <span class="skill-tag tag-orange">营收归因分析</span>
+          <span class="skill-tag tag-orange">目标达成追踪</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">CRM 与销售管道管理</div>
+        <div class="skill-tags">
+          <span class="skill-tag tag-blue">CRM 数据整合</span>
+          <span class="skill-tag tag-blue">销售管道分析</span>
+          <span class="skill-tag tag-blue">线索绩效追踪</span>
+          <span class="skill-tag tag-blue">预测建模</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">云与科技领域</div>
+        <div class="skill-tags">
+          <span class="skill-tag tag-teal">云解决方案领域</span>
+          <span class="skill-tag tag-teal">SaaS 销售分析</span>
+          <span class="skill-tag tag-teal">订阅制营收</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🌏 领导力与沟通</div>
+    <div class="skill-tags">
+      <span class="skill-tag tag-purple">高管汇报</span>
+      <span class="skill-tag tag-purple">全球赋能</span>
+      <span class="skill-tag tag-purple">利益相关方管理</span>
+      <span class="skill-tag tag-purple">跨区域协作</span>
+      <span class="skill-tag tag-purple">业务回顾汇报</span>
+      <span class="skill-tag tag-orange">中英双语</span>
+      <span class="skill-tag tag-orange">数据叙事</span>
+      <span class="skill-tag tag-orange">培训与辅导</span>
+    </div>
+  </div>
+</div>
+
+<!-- §3 职业经历 -->
+<div class="section" id="career">
+  <div class="sec-header">
+    <div class="sec-num">3</div>
+    <div><div class="sec-title">🗓️ 职业经历</div><div class="sec-sub">跨越三个国家的职业经历</div></div>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-head">
+        <div>
+          <div class="tl-company">Concentrix</div>
+          <div class="tl-role">商业分析师 &middot; 区域 BI 负责人</div>
+        </div>
+        <div class="tl-period">2024年5月 &ndash; 至今 &middot; 中国苏州</div>
+      </div>
+      <div class="tl-body">
+        <ul class="tl-points">
+          <li><strong>从零搭建完整的销售分析平台</strong> &mdash; 整合 CRM、电话系统及营销工具的多源数据，为管理层提供覆盖三个市场的实时、可信的团队绩效与销售管道视图</li>
+          <li><strong>从零设计区域绩效考核体系</strong>，覆盖中国、香港、台湾全部岗位类型，确保每位团队成员的贡献都能被公平、一致地衡量</li>
+          <li><strong>独立负责季度绩效考核全流程</strong>，涵盖40余名销售人员的达成率计算、异常标记、情境化调整，以及与区域和项目管理层的审批协调</li>
+          <li><strong>担任区域代表参与月度全球业务回顾会议</strong> &mdash; 构建结构化绩效叙述，提前沟通关键利益相关方，向高管汇报销售管道健康状况与战略展望</li>
+          <li><strong>联合主导针对全球同事的数据培训</strong>，覆盖美洲与法国团队，建立统一的指标定义和数据逻辑，确保分布式团队基于相同的分析框架运作</li>
+          <li><strong>构建了赢得广泛信赖的数据产品</strong> &mdash; 各类看板与报告被20余位利益相关方主动申请使用，体现出强劲的组织采用率</li>
+          <li><strong>维护与外部数据供应商的合作关系</strong>，确保电话及活动数据的准确性、及时性与可靠性</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#1a8c36;box-shadow:0 0 0 2px #1a8c36"></div>
+      <div class="tl-head">
+        <div>
+          <div class="tl-company">Uniexplore</div>
+          <div class="tl-role">房地产数据分析师</div>
+        </div>
+        <div class="tl-period">2022年10月 &ndash; 2024年4月 &middot; 加拿大多伦多</div>
+      </div>
+      <div class="tl-body">
+        <ul class="tl-points">
+          <li><strong>整合企业内部与政府公开数据集</strong>，为多伦多地区8万余套租赁房产构建评分与预测模型</li>
+          <li>交付 Power BI 看板，帮助管理层在库存分配与定价策略上做出有据可查的数据决策</li>
+          <li>实时监控市场价格变化趋势，提升领导层决策的速度与信心</li>
+          <li>参与面向客户的报告输出与对外展示，将数据洞察转化为可落地的行动建议</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#6030a0;box-shadow:0 0 0 2px #6030a0"></div>
+      <div class="tl-head">
+        <div>
+          <div class="tl-company">Allied Millennial Partners</div>
+          <div class="tl-role">数据分析师（股权研究）</div>
+        </div>
+        <div class="tl-period">2019年 &ndash; 2022年 &middot; 美国</div>
+      </div>
+      <div class="tl-body">
+        <ul class="tl-points">
+          <li>运用量化与基本面方法，分析美国股票市场中游戏板块公司</li>
+          <li>构建时间序列与回归模型，评估盈利发布、政策变化、市场趋势等外部事件对股价表现的影响</li>
+          <li>清晰地将分析结论与投资洞察传达给研究利益相关方，将量化输出转化为可执行的叙事框架</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- §4 核心项目 -->
+<div class="section" id="projects">
+  <div class="sec-header">
+    <div class="sec-num">4</div>
+    <div><div class="sec-title">📊 核心项目与交付成果</div><div class="sec-sub">驱动业务决策的数据分析产品</div></div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">📊 区域销售分析中台</div>
+        <div class="proj-meta">
+          <span class="chip ch-blue">负责人 &amp; 构建者</span>
+          <span class="chip ch-green">活跃 &middot; 每日更新</span>
+          <span class="chip ch-blue">Power BI</span>
+        </div>
+      </div>
+      <div style="text-align:right;font-size:12px;color:#7a9ab8">已被 20+ 位利益相关方采用</div>
+    </div>
+    <div class="proj-body">
+      <strong>功能介绍：</strong>这是一个综合性分析中台，承担团队销售绩效唯一可信数据源的角色。它为管理层提供每日视图，覆盖各岗位、各市场、各周度的团队生产力、销售管道健康度、线索质量与营销活动效果。<br><br>
+      <strong>我的贡献：</strong>在接管一套残缺、过时的旧系统后，我从零重建了整个平台。修复数据连接故障、重新设计数据模型，并将分析视图扩展至20余个模块。最终形成一个管理层在每周业务回顾与季度规划中依赖的核心平台。<br><br>
+      <strong>业务影响：</strong>已被组织内20余位利益相关方主动申请使用，成为绩效讨论的首选数据来源，全面替代了此前的临时性表格与手工报告。
+      <div class="tag-grid">
+        <span class="skill-tag tag-blue">每日生产力追踪</span>
+        <span class="skill-tag tag-blue">销售管道健康监测</span>
+        <span class="skill-tag tag-teal">营销活动绩效</span>
+        <span class="skill-tag tag-teal">线索质量分析</span>
+        <span class="skill-tag tag-purple">每周业务回顾</span>
+        <span class="skill-tag tag-orange">销售人员绩效</span>
+      </div>
+      <a class="proj-link" href="#" target="_blank">📊 查看报告 ↗</a>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">🧪 多市场产品营收追踪报告</div>
+        <div class="proj-meta">
+          <span class="chip ch-blue">负责人 &amp; 构建者</span>
+          <span class="chip ch-orange">周环比追踪</span>
+          <span class="chip ch-blue">Power BI</span>
+        </div>
+      </div>
+      <div style="text-align:right;font-size:12px;color:#7a9ab8">已覆盖3个市场</div>
+    </div>
+    <div class="proj-body">
+      <strong>功能介绍：</strong>这是一份战略性追踪报告，实现了对中国、香港、台湾三个市场产品级营收趋势的周环比可视化。管理层可以一眼识别增长亮点与风险领域，在问题扩大前及时介入。<br><br>
+      <strong>我的贡献：</strong>从零开始设计并构建该报告，将产品归因数据与 CRM 销售管道数据进行整合，并设计了兼顾高管与分析师可读性的输出结构。<br><br>
+      <strong>业务影响：</strong>上线后数周内即被多位高级利益相关方采用，成为战略产品讨论与每周业务回顾的重要参考依据。
+      <div class="tag-grid">
+        <span class="skill-tag tag-teal">周环比趋势分析</span>
+        <span class="skill-tag tag-teal">产品营收归因</span>
+        <span class="skill-tag tag-teal">多市场视图（中 · 港 · 台）</span>
+        <span class="skill-tag tag-blue">高管级可视化</span>
+      </div>
+      <a class="proj-link" href="#" target="_blank">📊 查看报告 ↗</a>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">✅ 团队绩效管理看板</div>
+        <div class="proj-meta">
+          <span class="chip ch-blue">负责人</span>
+          <span class="chip ch-green">一线赋能</span>
+          <span class="chip ch-blue">Power BI</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-body">
+      <strong>功能介绍：</strong>一款专为一线团队成员设计的绩效管理工具。帮助每个人了解自身的进展情况、与目标的差距，以及应聚焦的方向——消除模糊性，建立个人责任感。<br><br>
+      <strong>我的贡献：</strong>接手并扩展了该看板的功能，将电话系统数据与 CRM 记录整合，提供从电话到成果的端到端团队产出视图。<br><br>
+      <strong>业务影响：</strong>帮助团队成员主动掌控个人绩效，减少了管理者在手工追踪上的时间投入，使其得以将精力集中于辅导与策略。
+      <div class="tag-grid">
+        <span class="skill-tag tag-green">个人目标追踪</span>
+        <span class="skill-tag tag-green">团队生产力视图</span>
+        <span class="skill-tag tag-green">结果转化率分析</span>
+        <span class="skill-tag tag-green">电话转商机转化率</span>
+      </div>
+      <a class="proj-link" href="#" target="_blank">📊 查看报告 ↗</a>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div>
+        <div class="proj-title">📋 区域绩效考核系统</div>
+        <div class="proj-meta">
+          <span class="chip ch-blue">设计者 &amp; 负责人</span>
+          <span class="chip ch-orange">Excel · MySQL · Power BI</span>
+        </div>
+      </div>
+      <div style="text-align:right;font-size:12px;color:#7a9ab8">连续6个季度 · 40+ 名专业人员</div>
+    </div>
+    <div class="proj-body">
+      <strong>功能介绍：</strong>面向整个区域销售组织的端到端绩效评估与奖励系统，覆盖中国、香港、台湾所有岗位类型。<br><br>
+      <strong>我的贡献：</strong>设计计算方法论，构建计算模型，处理情境化调整（新入职、岗位变动、市场差异规则），并逐季度与区域及项目管理层协调最终审批。根据反馈与业务条件的变化，每季度迭代优化方法论。<br><br>
+      <strong>业务影响：</strong>确保40余名销售专业人员在连续六个季度中每次都能获得准确、公正、及时的绩效评估——在直接关系到个人收入的系统中，赢得了团队的持续信赖。
+      <div class="tag-grid">
+        <span class="skill-tag tag-orange">全岗位覆盖</span>
+        <span class="skill-tag tag-orange">方法论设计</span>
+        <span class="skill-tag tag-orange">迭代优化</span>
+        <span class="skill-tag tag-orange">跨职能协调</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- §5 业绩与成果 -->
+<div class="section" id="results">
+  <div class="sec-header">
+    <div class="sec-num">5</div>
+    <div><div class="sec-title">🎯 业绩与成果</div><div class="sec-sub">任职期间交付的核心业务成果</div></div>
+  </div>
+
+  <div class="spotlights">
+    <div class="spotlight">
+      <div class="sp-icon">⭐</div>
+      <div class="sp-text"><strong>季度销售目标超额完成 42%</strong><p>在数据分析支撑下，团队实现了全年最具突破性的一个季度——超额完成目标42%，是全年唯一突破100%的季度。</p></div>
+    </div>
+    <div class="spotlight">
+      <div class="sp-icon">📈</div>
+      <div class="sp-text"><strong>线索归因营收单季增长超 50%</strong><p>在一个季度内，来自入站线索信号的归因营收增长超过50%——反映了分析平台带来的线索质量提升、可见性增强与更精准的定向触达。</p></div>
+    </div>
+    <div class="spotlight">
+      <div class="sp-icon">🚀</div>
+      <div class="sp-text"><strong>续约率三个季度从 ~57% 提升至 ~81%</strong><p>连续三个季度持续改善团队续约绩效，背后驱动力来自更清晰的追踪机制、更好的报告可见性，以及基于数据洞察的及时介入。</p></div>
+    </div>
+    <div class="spotlight">
+      <div class="sp-icon">🌐</div>
+      <div class="sp-text"><strong>营收预测达成率达目标的 122%</strong><p>构建并维护了预测管道，支撑区域实现远超目标的营收达成——其中一个产品领域的目标超额完成超过30%。</p></div>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">活跃商机数</div><div class="kpi-value c-blue">3,000+</div><div class="kpi-delta delta-up">↑ 季度环比增长</div></div>
+    <div class="kpi-card"><div class="kpi-label">管道总价值</div><div class="kpi-value c-dark">$10M+</div><div class="kpi-delta delta-up">↑ 季度环比强劲增长</div></div>
+    <div class="kpi-card"><div class="kpi-label">平均单价</div><div class="kpi-value c-orange">稳定</div><div class="kpi-delta delta-n">→ 保持一致</div></div>
+    <div class="kpi-card"><div class="kpi-label">营收预测达成率</div><div class="kpi-value c-green">122%</div><div class="kpi-delta delta-up">强劲达成</div></div>
+    <div class="kpi-card"><div class="kpi-label">续约率</div><div class="kpi-value c-dark">~81%</div><div class="kpi-delta delta-up">↑ 较3季度前 ~57% 显著提升</div></div>
+    <div class="kpi-card"><div class="kpi-label">线索归因营收</div><div class="kpi-value c-blue">$1M+</div><div class="kpi-delta delta-up">↑ 季度环比增长 50%+</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📈 季度销售达成率</div>
+    <table class="data-table">
+      <thead><tr><th>季度</th><th>达成率</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><strong>FY25 Q1</strong></td><td><span class="chip ch-red">11%</span></td><td>起步季度；分析平台于此期间从零重建</td></tr>
+        <tr><td><strong>FY25 Q2</strong></td><td><span class="chip ch-orange">50%</span></td><td>显著回升；销售管道可见性与线索质量框架建立完成</td></tr>
+        <tr><td><strong>FY25 Q3</strong></td><td><span class="chip ch-orange">49%</span></td><td>年中表现稳定；跨市场报告体系标准化完成</td></tr>
+        <tr><td><strong>FY25 Q4 ⭐</strong></td><td><span class="chip ch-green">142%</span></td><td>突破性季度——超额完成目标42%，全年最高达成率</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">☁️ 云营收预测达成率</div>
+      <div class="prog-wrap"><div class="prog-head"><span>第1月</span><span class="c-orange">42% 达成率</span></div><div class="prog-track"><div class="prog-bar p-orange" style="width:42%"></div></div></div>
+      <div class="prog-wrap"><div class="prog-head"><span>第2月</span><span class="c-orange">51% 达成率</span></div><div class="prog-track"><div class="prog-bar p-orange" style="width:51%"></div></div></div>
+      <div class="prog-wrap"><div class="prog-head"><span>第3月</span><span class="c-green">70% 达成率</span></div><div class="prog-track"><div class="prog-bar p-green" style="width:70%"></div></div></div>
+      <div class="prog-wrap"><div class="prog-head"><span>季度合计</span><span class="c-blue">54% 达成率</span></div><div class="prog-track"><div class="prog-bar p-blue" style="width:54%"></div></div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">🗂️ 各产品领域营收达成率</div>
+      <div class="prog-wrap"><div class="prog-head"><span>Modern Work</span><span class="c-green">94% <span class="chip ch-green">正常推进</span></span></div><div class="prog-track"><div class="prog-bar p-green" style="width:94%"></div></div></div>
+      <div class="prog-wrap"><div class="prog-head"><span>Azure</span><span class="c-orange">77% <span class="chip ch-orange">存在风险</span></span></div><div class="prog-track"><div class="prog-bar p-orange" style="width:77%"></div></div></div>
+      <div class="prog-wrap"><div class="prog-head"><span>Security</span><span class="c-red">63% <span class="chip ch-red">存在风险</span></span></div><div class="prog-track"><div class="prog-bar p-red" style="width:63%"></div></div></div>
+      <div class="prog-wrap"><div class="prog-head"><span>Business Applications ⭐</span><span class="c-green">131% <span class="chip ch-green">超额完成</span></span></div><div class="prog-track"><div class="prog-bar p-green" style="width:100%"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §6 全球协作与赋能 -->
+<div class="section" id="global">
+  <div class="sec-header">
+    <div class="sec-num">6</div>
+    <div><div class="sec-title">🌏 全球协作与赋能</div><div class="sec-sub">跨区域领导力、沟通与知识共建</div></div>
+  </div>
+  <div class="collab-grid">
+    <div class="collab-card">
+      <div class="cc-icon">🎓</div>
+      <div class="cc-label">教授全球团队如何运用数据</div>
+      <div class="cc-text">联合主导面向美洲与法国同事的培训，系统讲解区域核心指标的定义、计算逻辑与解读方式。目标是确保无论身处何地，所有人都能基于同一套分析框架开展工作。</div>
+    </div>
+    <div class="collab-card">
+      <div class="cc-icon">📢</div>
+      <div class="cc-label">月度全球业务回顾主讲人</div>
+      <div class="cc-text">担任区域代表参与月度全球高管会议。构建清晰的绩效叙事，提前对齐关键决策者，围绕销售管道健康状况、营收进展与战略展望进行简洁有力的数据汇报。</div>
+    </div>
+    <div class="collab-card">
+      <div class="cc-icon">🖥️</div>
+      <div class="cc-label">帮助同事快速掌握 Power BI</div>
+      <div class="cc-text">为国际同事开展实操性 Power BI 建模培训，讲解区域分析方法并帮助他们将同样的逻辑应用到各自市场，整体提升了全球团队的数据分析能力。</div>
+    </div>
+    <div class="collab-card">
+      <div class="cc-icon">🤝</div>
+      <div class="cc-label">深度融入高绩效区域 BI 团队</div>
+      <div class="cc-text">作为区域核心分析团队的骨干成员，每日与销售卓越负责人、项目管理者及同侪分析师紧密协作，确保数据产品在三个市场中始终保持准确、及时、切实可用。</div>
+    </div>
+    <div class="collab-card">
+      <div class="cc-icon">📱</div>
+      <div class="cc-label">管理外部数据合作关系</div>
+      <div class="cc-text">与外部电话系统供应商保持积极合作——协调数据对接、解决数据质量问题，确保流入分析系统的数据随时保持准确、完整、更新及时。</div>
+    </div>
+    <div class="collab-card">
+      <div class="cc-icon">🗺️</div>
+      <div class="cc-label">全面覆盖三个市场</div>
+      <div class="cc-text">为整个区域组织提供数据分析与绩效支持——覆盖中国、香港、台湾，横跨每一个销售岗位类型、每一个季度。一位分析师，三个市场，始终如一的标准。</div>
+    </div>
+  </div>
+</div>
+
+<!-- §7 绩效管理记录 -->
+<div class="section" id="kpi">
+  <div class="sec-header">
+    <div class="sec-num">7</div>
+    <div><div class="sec-title">📋 绩效管理记录</div><div class="sec-sub">连续六个季度的区域端到端绩效评估</div></div>
+  </div>
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th>季度</th><th>覆盖范围</th><th>主要工作内容</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td><strong>FY25 Q1</strong></td><td>中国 · 香港 · 台湾 · 全岗位</td><td>首次完成全区域绩效计算——从零搭建覆盖所有岗位类型与市场的基准计算模型</td><td><span class="chip ch-green">已完成</span></td></tr>
+        <tr><td><strong>FY25 Q2</strong></td><td>中国 · 香港 · 台湾 · 全岗位</td><td>处理跨市场营收调整，引入针对新入职与离职员工的公平对待政策，协调多方利益相关方完成审批</td><td><span class="chip ch-green">已完成</span></td></tr>
+        <tr><td><strong>FY25 Q3</strong></td><td>中国 · 香港 · 台湾 · 全岗位</td><td>根据管理层反馈重新设计商机转营收的计算方法论，提升目标评估的准确性与公平性</td><td><span class="chip ch-green">已完成</span></td></tr>
+        <tr><td><strong>FY25 Q4</strong></td><td>中国 · 香港 · 台湾 · 全岗位</td><td>进一步细化销售管道管理指标，提交修订后的计算结果并协调项目管理层完成最终审批</td><td><span class="chip ch-green">已完成</span></td></tr>
+        <tr><td><strong>FY26 Q1</strong></td><td>中国 · 香港 · 台湾 · 全岗位</td><td>输出综合达成率文件供管理层职业发展谈话使用，处理特殊区域营收调整及额外绩效奖金计算</td><td><span class="chip ch-green">已完成</span></td></tr>
+        <tr><td><strong>FY26 Q2</strong></td><td>中国 · 香港 · 台湾 · 全岗位</td><td>根据香港入站流量的结构性变化更新区域目标，经管理层确认后修订并重新下发</td><td><span class="chip ch-green">已完成</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="highlight-box">
+    💡 <strong>更大的意义：</strong>管理一个区域的绩效评估系统，不仅仅是一项技术工作——它需要业务判断力、严谨细致的态度，以及每一位依赖这套数字生活的人对你的信任。黄恺宁在连续六个季度中，跨越三个市场、覆盖组织全部岗位，始终如一地完成了这项使命。
+  </div>
+</div>
+
+</div><!-- /main -->
+</div><!-- /layout -->
+
+<!-- 联系方式栏 -->
+<div class="contact-bar">
+  <div class="cb-icon">📱</div>
+  <div>
+    <div class="cb-label">联系方式</div>
+    <div class="cb-value">+86 181 1888 5630</div>
+  </div>
+</div>
+
+<footer>
+  本作品集由 <strong>黄恺宁（Kaining Huang）</strong> 本人编制，作为简历的补充材料，展示核心项目成果与业务影响力。<br/>
+  Concentrix &middot; 大中华区 &middot; 2026年3月
+</footer>
+
+<script>
+const items = document.querySelectorAll('.sb-item');
+const sections = ['about','skills','career','projects','results','global','kpi'];
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-100) cur=id;
+  });
+  items.forEach(i=>{
+    i.classList.toggle('active',i.getAttribute('href')==='#'+cur);
+  });
+});
+</script>
+</body>
+</html>
